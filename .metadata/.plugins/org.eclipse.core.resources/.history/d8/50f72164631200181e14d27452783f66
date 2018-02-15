@@ -1,0 +1,28 @@
+package com.practice.json;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+public class App {
+    public static void main( String[] args ) {
+        Gson gson = new Gson();
+        Map<String, Object> map = new HashMap<String, Object>();
+        String jsonStr = "\"value\":100,\"object\":{\"string\":\"test\"}";
+        map.put("tmp", jsonStr);
+        map.put("1", true);
+        map.put("2", 200);
+
+        String tmp = (String) map.remove("tmp");
+        String msg = gson.toJson(map);
+        msg = (String) msg.subSequence(0, msg.length()-1)
+            + "," + tmp + "}";
+        System.out.println(msg); // send this as websocket message
+
+        Type type = new TypeToken<Map<String, Stringt>>(){}.getType();
+        System.out.println(gson.fromJson(msg, type));
+    }
+}

@@ -1,0 +1,45 @@
+package com.practice.json;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import com.google.gson.Gson;
+
+/**
+ * Hello world!
+ *
+ */
+public class App
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+
+        Gson gson = new Gson();
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("1", true);
+        map.put("2", 200);
+
+        String jsonStr = "\"value\":100,\"object\":{\"string\":\"test\"}";
+        System.out.println(jsonStr);
+//        System.out.println(gson.fromJson(jsonStr, null);
+
+        map.put("tmp", jsonStr);
+        //dispatch
+
+        //messageProcessor
+        String tmp = (String) map.remove("tmp");
+        System.out.println(tmp);
+        String msg = gson.toJson(map);
+        msg = (String) msg.subSequence(0, msg.length()-1);
+        System.out.println(msg + "," + tmp + "}");
+
+
+        //String str = gson.toJson(map);
+        //System.out.println(str);
+        ////
+
+
+    }
+
+}

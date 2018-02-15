@@ -1,0 +1,23 @@
+package com.practice.json;
+
+import com.google.gson.Gson;
+
+/**
+ * Hello world!
+ *
+ */
+public class App
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+
+        Gson gson = new Gson();
+        String jsonStr = "{\"title\":\"投稿タイトル\",\"content\":\"本文本文本文\","
+                + "\"author\":{\"email\":\"bob@jmail.com\",\"fullname\":\"Bob\"},"
+                + "\"comments\":[{\"author\":\"Tom\",\"content\":\"コメント本文\"}]"
+                + "}";
+        Post post = gson.fromJson(jsonStr, Post.class);
+    }
+
+}

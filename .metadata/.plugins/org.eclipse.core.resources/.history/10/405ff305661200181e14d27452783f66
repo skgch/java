@@ -1,0 +1,9 @@
+package com.practice.json;
+
+import java.util.Map;
+
+import com.google.gson.JsonDeserializer;
+
+public class GenericMapDeserializer<T> implements JsonDeserializer<Map<String, T>> {
+
+}
